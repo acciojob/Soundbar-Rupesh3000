@@ -11,7 +11,8 @@ sounds.forEach(sound => {
 
   btn.addEventListener("click", () => {
     stopSounds();
-    const audio = new Audio(`sounds/${sound}.mp3`);
+    const audio = new Audio(`./sounds/${sound}.mp3`);
+
     audio.play();
     btn.currentAudio = audio; // attach audio to button
   });
