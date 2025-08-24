@@ -1,25 +1,40 @@
-const buttons = document.querySelectorAll(".btn");
-let currentAudio = null;
+// List of sounds (names should match files in "sounds" folder)
+const sounds = ["sound1", "sound2", "sound3", "sound4"];
 
-buttons.forEach(button => {
-  button.addEventListener("click", () => {
-    if (button.classList.contains("stop")) {
-      if (currentAudio) {
-        currentAudio.pause();
-        currentAudio.currentTime = 0;
-      }
-      return;
-    }
+const buttonsContainer = document.getElementById("buttons");
 
-    const fileName = button.dataset.sound;  
-    const soundPath = `sounds/${fileName}`;  // direct naam use hoga
+// Create a button for each sound
+sounds.forEach(sound => {
+  const btn = document.createElement("button");
+  btn.classList.add("btn");
+  btn.innerText = sound;
 
-    if (currentAudio) {
-      currentAudio.pause();
-      currentAudio.currentTime = 0;
-    }
-
-    currentAudio = new Audio(soundPath);
-    currentAudio.play();
+  btn.addEventListener("click", () => {
+    stopSounds();
+    const audio = new Audio(`sounds/${sound}.mp3`);
+    audio.play();
+    btn.currentAudio = audio; // attach audio to button
   });
+
+  buttonsContainer.appendChild(btn);
 });
+
+// Create STOP button
+const stopBtn = document.createElement("button");
+stopBtn.classList.add("stop");
+stopBtn.innerText = "Stop";
+
+stopBtn.addEventListener("click", stopSounds);
+
+buttonsContainer.appendChild(stopBtn);
+
+// Function to stop all sounds
+function stopSounds() {
+  const btns = document.querySelectorAll(".btn");
+  btns.forEach(b => {
+    if (b.currentAudio) {
+      b.currentAudio.pause();
+      b.currentAudio.currentTime = 0;
+    }
+  });
+}

@@ -1,39 +1,39 @@
-/*  your css code here. If applicable */
-#buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    padding: 20px;
-    background-color: #222;
-    border-radius: 12px;
-    max-width: 600px;
-    margin: 40px auto;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 30px;
 }
 
-.btn {
-    padding: 14px 28px;
-    border: none;
-    border-radius: 8px;
-    background-color: #4caf50;
-    color: white;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
-    user-select: none;
+h1 {
+  color: #333;
+}
+
+#buttons {
+  margin-top: 20px;
+}
+
+.btn, .stop {
+  background: #3498db;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  margin: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .btn:hover {
-    background-color: #45a049;
+  background: #2980b9;
 }
 
-.btn.stop {
-    background-color: #f44336;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+.stop {
+  background: #e74c3c;
 }
 
-.btn.stop:hover {
-    background-color: #d32f2f;
+.stop:hover {
+  background: #c0392b;
 }
